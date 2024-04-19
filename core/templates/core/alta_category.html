@@ -1,0 +1,25 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row">
+           
+    <!-- Sección principal con 8 columnas -->
+    <div class="col-8">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p class="h3 text-center">Altas de Categorías</p>
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+
+    </div>
+    <!-- Sección secundaria con 4 columnas -->
+    <div class="col-4">
+        <h2>Sección Secundaria</h2>
+        <p>Contenido de la sección secundaria...</p>
+    </div>
+</div
+{% endblock content %}
+

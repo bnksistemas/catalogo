@@ -1,0 +1,34 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row">
+           
+    <!-- Sección principal con 8 columnas -->
+    <div class="col-8">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p class="h3 text-center">Altas de Generos</p>
+            {{ form|crispy }}
+            <input class="btn btn-primary" type="submit" value="Guardar Genero" {% if 'ok' in request.GET %}disabled{% endif %}{% if 'error' in request.GET %}disabled{% endif %}>
+        </form>
+        {% if 'ok' in request.GET %}
+            <div class="alert alert-success mt-5" role="alert">
+                <strong>El Género se ha guardó correctamente</strong>
+            </div>
+        {% endif %}
+
+        {% if 'error' in request.GET %}
+            <div class="alert alert-danger mt-5" role="alert">
+                <strong>El Género no se ha podido Guardar. Por favor, intente más tarde</strong>
+            </div>
+        {% endif %}
+
+    </div>
+    <!-- Sección secundaria con 4 columnas -->
+    <div class="col-4">
+        <h2>Sección Secundaria</h2>
+        <p>Contenido de la sección secundaria...</p>
+    </div>
+</div
+{% endblock content %}
